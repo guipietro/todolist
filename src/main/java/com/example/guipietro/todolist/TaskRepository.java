@@ -8,6 +8,7 @@ public interface TaskRepository {
 
 	public boolean findId(Long id);
 	
-	public Task update(Task task);
+	public Task update(Long id, Task task);
 	
+	public boolean delete(Long id);
 }

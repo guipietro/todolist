@@ -35,14 +35,20 @@ public class TaskRepositoryMemory implements TaskRepository{
 	}
 
 	@Override
-	public Task update(Task task) {
-		Task value = this.getTask(task.getId());
+	public Task update(Long id, Task task) {
+		Task value = this.getTask(id);
 		value.setTitle(task.getTitle());
 		value.setCreateDateTime(task.getCreateDateTime());
 		value.setDescription(task.getDescription());
 		value.setDueDateTime(task.getDueDateTime());
 		value.setStatus(task.getStatus());
 		return value;
+	}
+
+	@Override
+	public boolean delete(Long id) {
+		Task value = this.getTask(id);
+		return this.tasks.remove(value);
 	}
 	
 	
